@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#12121c">
+  <meta name="description" content="SKIP. A short, original browser game about drug abuse, lost time, and one unanswered message.">
+  <title>SKIP</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/maya-polaroid.png">
+  <script defer src="game.js"></script>
+</head>
+<body>
+<main id="app">
+  <section id="stage" tabindex="-1" aria-label="SKIP narrative game">
+    <canvas id="world" width="480" height="270" aria-label="Use A and D or arrow keys to move. E interacts. During a high, steer through light and hold Space to rise."></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="openingMayaBubble" hidden aria-hidden="true"><span>HEY!</span><span>OVER HERE!</span></div>
+    <header id="hud" hidden><div id="date"></div><div class="utilities"><button id="sound" aria-label="Toggle sound">SOUND ON</button><button id="pause" aria-label="Pause">II</button></div></header>
+    <div id="thought" aria-live="polite"></div>
+    <button id="interact" hidden><kbd>E</kbd><span id="verb">TALK</span><small id="object"></small></button>
+    <div id="highHelp" hidden>← → &nbsp; DRIFT <span>SPACE &nbsp; RISE · RELEASE &nbsp; FLOAT</span></div>
+    <div id="dialogue" hidden role="region" aria-label="Conversation"><div id="speaker"></div><p id="line" aria-live="polite"></p><button id="next" aria-label="Continue dialogue">ENTER <span>↵</span></button></div>
+    <div id="choice" hidden role="dialog" aria-modal="true" aria-labelledby="choiceTitle"><div class="choice-frame"><p id="choiceTag" class="eyebrow"></p><h2 id="choiceTitle"></h2><p id="choiceBody"></p><div id="options"></div></div></div>
+    <div id="phone" hidden role="dialog" aria-modal="true" aria-labelledby="phoneName"><div class="phone-status"><span id="phoneTime"></span><span>MESSAGES <i></i></span></div><header><div id="phoneName">MAYA</div><small id="phoneSub"></small></header><div id="messages" aria-live="polite"></div><div id="draft" hidden><small>UNSENT</small><p id="draftText"></p></div><p id="phoneThought" aria-live="polite"></p><div id="phoneOptions"></div></div>
+    <div id="moment" hidden role="status"><strong id="momentContact"></strong><p id="momentText"></p></div><div id="montageMessages" hidden role="status" aria-live="polite" aria-label="Unread messages"></div><div id="reflection" class="screen" hidden><p id="reflectionText" aria-live="polite"></p></div>
+    <div id="memoryPhoto" hidden aria-label="A Polaroid of Maya and the protagonist at the party"><img src="assets/maya-polaroid.png" alt="Maya and the protagonist smiling together at the party. The Polaroid reads table by the fan smiley."></div>
+    <div id="mirrorView" class="screen" hidden role="region" aria-label="Mirror reflection"><canvas id="mirrorClose" width="480" height="270" aria-hidden="true"></canvas><p id="mirrorLine" aria-live="polite"></p></div>
+    <div id="supplyView" class="screen" hidden role="region" aria-label="The usual drug packet is empty"><div class="empty-supply-art" aria-hidden="true"><span></span><i></i></div><p>EMPTY.</p></div>
+    <button id="pace" hidden aria-label="Continue this moment">↵ <small>E / ENTER</small></button><div id="deskChoice" hidden role="dialog" aria-label="Pink-and-white capsule"><span class="capsule" aria-hidden="true"></span><small>ON THE DESK</small><div id="deskOptions"></div></div><div id="curtain" aria-hidden="true"></div>
+    <div id="title"><div class="title-content"><p class="eyebrow">A SHORT GAME ABOUT DRUG ABUSE</p><h1>SK<span>I</span>P</h1><p class="title-note">Just for a little while.</p><button id="begin" class="primary">PRESS ANY KEY · BEGIN</button><div class="title-settings"><button id="titleSound">SOUND ON</button><button id="titleMotion">FULL MOTION</button></div><label class="volume-control" for="titleVolume"><span>VOLUME</span><input id="titleVolume" type="range" min="0" max="100" step="1" value="70"><output id="titleVolumeValue" for="titleVolume">70%</output></label><p class="smallprint">6–8 MINUTES · HEADPHONES RECOMMENDED<br>Fictional drug experience. Altered visuals and minor injuries.</p></div><div class="title-bottom"><span>AN INTERACTIVE SHORT STORY</span><span>A / D or ← → MOVE &nbsp; E INTERACT</span></div></div>
+    <div id="pauseScreen" class="screen" hidden role="dialog" aria-modal="true" aria-labelledby="pauseTitle"><div class="menu"><p class="eyebrow">SKIP</p><h2 id="pauseTitle">PAUSED</h2><button id="resume" class="primary">RESUME <span>↵</span></button><button id="pauseSound">SOUND ON</button><label class="volume-control" for="pauseVolume"><span>VOLUME</span><input id="pauseVolume" type="range" min="0" max="100" step="1" value="70"><output id="pauseVolumeValue" for="pauseVolume">70%</output></label><button id="pauseMotion">FULL MOTION</button><button id="restart">RESTART</button><details id="recentDialogue"><summary>READ RECENT DIALOGUE</summary><div id="dialogueLog"></div></details><p class="smallprint">A / D or ← / → · Move<br>E / Space · Interact · Enter · Continue<br>During a high: Space / W / ↑ · Rise<br>Esc · Pause &nbsp; M · Sound</p></div></div>
+    <div id="endScreen" class="screen" hidden><div class="end-content"><p class="eyebrow">AN INTERACTIVE SHORT STORY</p><h2>SKIP</h2><p class="end-note">You don’t have to skip the next conversation.</p><div class="end-buttons"><button id="help" class="primary">FIND SUPPORT <span>↗</span></button><button id="again">PLAY AGAIN</button></div><p class="smallprint">Original art, procedural animation & music.<br>Created with AI. No external audio recordings.</p></div></div>
+    <div id="support" class="screen" hidden role="dialog" aria-modal="true" aria-labelledby="supportTitle"><div class="support-content"><p class="eyebrow">SINGAPORE · SUPPORT</p><h2 id="supportTitle">You can start with a conversation.</h2><p>A trusted person, a school counsellor, or a professional service can help you take a next step.</p><div class="support-contacts"><a href="https://www.nhghealth.com.sg/imh/nams" target="_blank" rel="noopener noreferrer"><strong>National Addictions Management Service</strong><span>Addiction assessment, treatment and support.</span><b>Appointments · 6389 2200 ↗</b></a><a href="https://mindline.sg/fsmh" target="_blank" rel="noopener noreferrer"><strong>national mindline 1771</strong><span>24/7 mental health support. Singapore’s first national mental health helpline and textline service.</span><b>Hotline · 1771</b><b>WhatsApp · 6669-1771 (message only)</b></a></div><a href="https://www.scdf.gov.sg/home/about-scdf/emergency-medical-services" target="_blank" rel="noopener noreferrer"><strong>Medical emergency · 995</strong><span>SCDF emergency ambulance service. For emergencies.</span></a><a href="https://www.ncada.org.sg/" target="_blank" rel="noopener noreferrer"><strong>National Council Against Drug Abuse (NCADA)</strong><span>Learn about drug harms, prevention resources and community efforts towards a drug-free Singapore.</span><b>Visit the official NCADA website ↗</b></a><p class="smallprint">This fictional story is not a simulation of a specific drug or everyone's experience.</p><button id="supportBack">BACK</button></div></div>
+    <p id="status" class="sr-only" aria-live="polite"></p>
+  </section>
+  <footer><span>SKIP <i> / </i> A SHORT STORY</span><span id="controls">A / D MOVE · E INTERACT · GOLD DOT: NEXT STEP · ESC PAUSE</span></footer>
+</main>
+<noscript>SKIP needs JavaScript. Enable it, then open index.html again.</noscript>
+</body>
+</html>

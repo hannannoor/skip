@@ -1,0 +1,414 @@
+:root{color-scheme:dark;--bg:#12121c;--ink:#eee4cd;--muted:#aaa0ab;--panel:#1c1d2b;--line:#625567;--peach:#ecb58d;--pink:#ef8b9d;font-family:Verdana,Geneva,sans-serif;background:var(--bg);color:var(--ink)}
+*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;background:#12121c}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--line);background:#272534;min-height:42px;padding:11px 17px;border-radius:0;box-shadow:3px 3px 0 #090910;letter-spacing:.08em;font-size:12px}button:hover{background:#3c3444;border-color:var(--ink)}button:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #090910}button:focus-visible,a:focus-visible{outline:2px solid #f5c888;outline-offset:4px}button:disabled{opacity:.4;cursor:default}button span{float:right;margin-left:22px}[hidden]{display:none!important}#app{width:min(1320px,calc(100vw - 48px),calc((100svh - 80px)*16/9));margin:20px auto}#stage{position:relative;aspect-ratio:16/9;isolation:isolate;background:#14121d;container-type:inline-size;overflow:hidden;outline:none;box-shadow:0 0 0 1px #48404f,0 12px 0 -6px #090910}#world{display:block;width:100%;height:100%;image-rendering:pixelated}.grain{position:absolute;inset:0;pointer-events:none;opacity:.09;background:repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 4px);z-index:1}#hud{position:absolute;inset:0 0 auto;display:flex;align-items:flex-start;justify-content:space-between;padding:2.4% 3%;z-index:3;pointer-events:none}#date{font-size:clamp(10px,1.25cqw,15px);letter-spacing:.07em;white-space:pre-line;line-height:1.8;color:#eee4cd;text-shadow:2px 2px #15131f}.utilities{display:flex;gap:8px;pointer-events:auto}.utilities button{min-height:30px;padding:7px 10px;font-size:10px;background:#1b1a27e8}#pause{font-size:12px;min-width:33px}#thought{position:absolute;left:20%;right:20%;top:19%;text-align:center;z-index:4;pointer-events:none;font-size:clamp(14px,1.65cqw,21px);line-height:1.5;color:#f1e7d7;text-shadow:2px 2px #14101b;opacity:0;transition:opacity .25s}#thought.visible{opacity:1}#thought span{background:#191925ed;padding:8px 13px;box-decoration-break:clone;-webkit-box-decoration-break:clone}#interact{position:absolute;z-index:4;transform:translate(-50%,-100%);padding:6px 9px;min-height:30px;font-size:clamp(10px,1.15cqw,14px);white-space:nowrap;background:#191925;box-shadow:2px 2px #090910}#interact:hover{background:#373142}#interact span{float:none;margin:0 0 0 7px}kbd{font:inherit;font-weight:bold;color:#15131d;background:var(--peach);padding:2px 4px}#object{display:block;color:#b3a4b3;font-size:9px;letter-spacing:.06em;margin-top:5px}#dialogue{position:absolute;bottom:3.8%;left:8%;right:8%;min-height:22%;padding:2% 2.4% 2.4%;background:#1a1925;border:2px solid #746071;box-shadow:5px 5px #080811;z-index:8}#speaker{color:var(--peach);font-weight:bold;font-size:clamp(11px,1.3cqw,16px);letter-spacing:.1em;margin-bottom:8px}#line{font-size:clamp(15px,1.8cqw,22px);line-height:1.55;margin:0 44px 0 0;min-height:2.6em}#next{position:absolute;bottom:10px;right:12px;box-shadow:none;border:0;padding:5px;background:none;color:#b4a2b4;min-height:28px;font-size:9px}#next span{font-size:19px;margin-left:7px}#choice{position:absolute;inset:0;background:#12111b77;display:grid;place-items:center;z-index:10}.choice-frame{background:#1c1b29;border:2px solid #837083;box-shadow:6px 6px #090910;padding:3%;width:49%;max-height:89%;overflow:auto}h2{font-size:clamp(20px,2.6cqw,34px);line-height:1.2;margin:0 0 18px;letter-spacing:-.045em}.eyebrow{font-size:clamp(9px,1.1cqw,13px);font-weight:bold;letter-spacing:.16em;color:#d8a788;line-height:1.8;margin:0 0 14px}#choiceBody{font-size:clamp(13px,1.5cqw,18px);line-height:1.65;white-space:pre-line;color:#c9bdcb;margin:0}#choiceBody:empty{display:none}#options{display:grid;gap:11px;margin-top:24px}#options button{text-align:left;font-size:clamp(11px,1.25cqw,15px)}.primary{background:#e8bd99;color:#221d28;border-color:#e8bd99}.primary:hover{background:#f4d0aa;color:#221d28}#phone{position:absolute;right:7%;top:9%;width:34%;height:82%;background:#21202e;border:3px solid #9a7b8c;box-shadow:7px 7px #090910;z-index:10;display:flex;flex-direction:column;padding:0 1.6% 1.6%}.phone-status{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #584957;font-size:clamp(8px,.95cqw,12px);color:#cfb8c7;letter-spacing:.06em}.phone-status i{display:inline-block;width:10px;height:6px;margin-left:7px;background:#cfb8c7}#phone header{padding:13px 0 12px;border-bottom:1px solid #584957}#phoneName{font-weight:bold;font-size:clamp(13px,1.5cqw,19px);letter-spacing:.06em}#phoneSub{display:block;font-size:clamp(9px,1cqw,12px);color:#b29baa;margin-top:6px}#messages{overflow:auto;flex:1;padding:16px 0 8px;scrollbar-width:thin;scrollbar-color:#897184 transparent}.message{margin-bottom:16px}.message small{display:block;font-size:clamp(8px,.9cqw,11px);color:#a799ad;letter-spacing:.025em;margin-bottom:5px}.message p{margin:0;padding:9px 10px;background:#363043;border-left:2px solid #906c84;font-size:clamp(13px,1.4cqw,17px);line-height:1.5;white-space:pre-line}.message.sent{margin-left:12%}.message.sent p{background:#47404a;border-left:2px solid #ceb49e}.message.sent small{text-align:right}#phoneOptions{display:flex;gap:8px;padding-top:9px}#phoneOptions button{padding:9px 8px;flex:1;font-size:clamp(9px,1.05cqw,13px);min-height:39px}#highHelp{position:absolute;bottom:5%;left:0;right:0;z-index:3;text-align:center;font-size:clamp(10px,1.2cqw,15px);letter-spacing:.08em;text-shadow:2px 2px #191025;pointer-events:none}#highHelp span{display:block;font-size:.78em;opacity:.8;margin-top:8px}#curtain{position:absolute;inset:0;background:#12121b;opacity:0;pointer-events:none;z-index:14}#title{position:absolute;inset:0;z-index:15;background:linear-gradient(90deg,#16141fee 0%,#16141fce 35%,#16141f22 72%)}.title-content{position:absolute;left:8%;top:11%;width:53%}h1{font-size:clamp(70px,13cqw,170px);font-family:Arial Black,Verdana,sans-serif;font-weight:1000;line-height:.94;letter-spacing:-.09em;margin:10px 0 18px;color:#f0dfbd;position:relative;width:fit-content}h1:after{content:'';position:absolute;height:6%;background:#191622;left:-4%;right:-3%;top:49%;transform:translateX(7px)}h1 span{color:#df947f}.title-note{color:#c4a9b0;font-size:clamp(13px,1.8cqw,21px);margin:0 0 25px;letter-spacing:.025em}#begin{width:56%;min-height:44px}.title-settings{display:flex;gap:8px;margin-top:16px}.title-settings button{font-size:clamp(8px,.95cqw,11px);padding:7px 9px;min-height:30px;background:#211d2b}.smallprint{font-size:clamp(9px,1.05cqw,12px);line-height:1.85;color:#a99aa9;letter-spacing:.015em}.title-content .smallprint{margin-top:19px}.title-bottom{position:absolute;bottom:5%;left:8%;right:5%;display:flex;justify-content:space-between;font-size:clamp(8px,.9cqw,11px);letter-spacing:.08em;color:#b9a6b2}.screen{position:absolute;inset:0;background:#171520;z-index:18;display:grid;place-items:center;padding:4%}#pauseScreen{z-index:30;background:#171520f5}.menu{width:33%;text-align:center}.menu h2{font-size:clamp(25px,4cqw,50px);margin-bottom:26px}.menu button{display:block;width:100%;margin:12px 0;font-size:clamp(10px,1.2cqw,14px)}.menu .smallprint{margin-top:23px}.end-content{text-align:center;width:70%}.end-content h2{font-size:clamp(60px,11cqw,140px);letter-spacing:-.085em;margin:0;color:#e5d1b1}.end-note{color:#c1a8b1;font-size:clamp(14px,1.8cqw,22px);margin:18px 0 30px}.end-buttons{display:flex;justify-content:center;gap:14px;margin-bottom:30px}.support-content{width:65%;max-height:100%;overflow:auto;padding:5px}.support-content h2{font-size:clamp(22px,3cqw,38px);letter-spacing:-.05em}.support-content>p:not(.eyebrow):not(.smallprint){font-size:clamp(12px,1.4cqw,18px);line-height:1.65;color:#c6b7c4}.support-content a{display:block;text-decoration:none;color:var(--ink);border:1px solid #6c576e;box-shadow:3px 3px #0b0b12;padding:14px 17px;margin:16px 0;background:#262231}.support-content a:hover{background:#352c3d}.support-content a strong{font-size:clamp(12px,1.45cqw,18px);display:block}.support-content a span,.support-content a b{display:block;margin-top:7px;line-height:1.5;font-size:clamp(10px,1.1cqw,14px);font-weight:normal;color:#c6b4c1}.support-content a b{color:#e8bd99}footer{display:flex;justify-content:space-between;gap:15px;color:#8f8196;font-size:9px;letter-spacing:.12em;margin:18px 0 0}footer i{font-style:normal;color:#d59685;margin:0 8px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:760px){#app{width:calc(100vw - 16px);margin:8px}.title-content{top:7%}.title-note{margin-bottom:12px}.title-content .smallprint{margin-top:10px}.title-settings{margin-top:10px}.title-bottom{bottom:4%}#begin{min-height:34px;padding:8px 12px}footer{font-size:7px;letter-spacing:.02em}#controls{display:none}.choice-frame{width:65%}.menu{width:45%}.menu button{min-height:32px;margin:7px 0;padding:7px}.menu .smallprint{margin-top:12px}#phone{width:43%;right:4%;height:90%;top:5%}.phone-status{padding:6px 0}#phone header{padding:7px 0}#messages{padding-top:9px}.message{margin-bottom:10px}#phoneOptions button{min-height:32px;padding:6px}.support-content{width:85%}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}body[data-motion="reduced"] .grain{opacity:.04}
+
+/* 67.13 correction: display-resolution Maya invitation bubble. */
+#openingMayaBubble{
+  position:absolute;z-index:3;pointer-events:none;transform:translate(-50%,-100%);
+  min-width:clamp(88px,10.5cqw,132px);padding:clamp(7px,.75cqw,10px) clamp(10px,1cqw,14px);
+  background:#f1dfbf;color:#2b252d;border:2px solid #4a3d46;border-radius:9px 9px 8px 9px;
+  box-shadow:0 2px 0 rgba(16,14,21,.38);text-align:center;font-weight:800;letter-spacing:.055em;
+  line-height:1.08;font-size:clamp(11px,1.22cqw,16px);white-space:nowrap;
+}
+#openingMayaBubble span{display:block}
+#openingMayaBubble span+span{margin-top:.18em}
+#openingMayaBubble::before,#openingMayaBubble::after{content:'';position:absolute;left:54%;width:0;height:0;transform:translateX(-50%);pointer-events:none}
+#openingMayaBubble::before{bottom:-10px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:10px solid #4a3d46}
+#openingMayaBubble::after{bottom:-7px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #f1dfbf}
+@media(max-width:760px){#openingMayaBubble{min-width:78px;padding:6px 9px;font-size:clamp(10px,1.45cqw,13px);border-width:1.5px}}
+
+.end-reflection{max-width:570px;margin:0 auto 25px;color:#d0bfca;font-size:clamp(13px,1.45cqw,18px);line-height:1.65}.end-content h2{font-size:clamp(48px,8cqw,100px)}.end-note{margin:10px 0 19px}.end-buttons{margin-bottom:19px}
+
+#moment{position:absolute;left:7%;top:27%;width:44%;z-index:5;background:#211e2ded;border:1px solid #927689;padding:1.5% 2%;box-shadow:4px 4px #13121a;pointer-events:none}#moment strong{font-size:clamp(10px,1.2cqw,14px);color:#e2b699;letter-spacing:.08em}#moment p{font-size:clamp(14px,1.65cqw,20px);line-height:1.5;margin:9px 0 0;color:#e5d8dc}#reflection{background:#12121b}#reflectionText{max-width:760px;width:83%;font-size:clamp(20px,2.6cqw,32px);line-height:1.7;text-align:center;color:#e8daca;margin:0}#stage[data-phase="montage"] #thought{top:12%;left:38%;right:5%}
+
+/* V3: private thoughts stay with their objects. */
+#thought{top:auto;bottom:8%;left:6%;right:40%;text-align:left;font-size:clamp(14px,1.55vw,20px);line-height:1.45;pointer-events:none}
+#thought span{padding:.3em .55em;background:rgba(20,19,31,.85);box-decoration-break:clone}
+#moment{left:5%;top:16%;width:27%;padding:14px 17px;pointer-events:none;border:1px solid #756879;background:#201e2bdd;font-size:clamp(12px,1.3vw,17px)}
+#moment p{white-space:pre-line;margin:.5em 0 0;line-height:1.5}
+#phone{display:flex;flex-direction:column}#phone[hidden]{display:none}#messages{min-height:0;flex:1}
+#draft{margin:8px 16px 0;padding:10px 12px;border:1px solid #716879;background:#282635;flex-shrink:0}#draft small{font-size:10px;letter-spacing:.12em;color:#b2a4b3}#draft p{margin:5px 0 0;min-height:1.4em;font-size:16px}#draft p:after{content:'▏';color:#dbc59e}
+#phoneThought{font-size:clamp(13px,1.3vw,17px);line-height:1.4;font-style:italic;color:#d5c5b4;margin:9px 20px;flex-shrink:0;min-height:0}#phoneThought:empty{display:none}
+#pace{position:absolute;z-index:22;right:4%;bottom:3%;padding:6px 10px;background:#1b1928df;border:1px solid #8c8094;font-size:20px}#pace small{font-size:10px;letter-spacing:.06em}
+#deskChoice{position:absolute;z-index:16;left:55%;bottom:19%;width:29%;padding:15px;background:#211f2ded;border:1px solid #8a788d}#deskChoice>small{font-size:11px;letter-spacing:.12em;vertical-align:middle}#deskOptions{display:flex;gap:8px;margin-top:12px}#deskOptions button{flex:1;padding:10px 6px;font-size:13px}.capsule{display:inline-block;width:22px;height:10px;border:2px solid #252132;background:linear-gradient(90deg,#cb879a 50%,#e5d5c4 50%);margin-right:10px;vertical-align:middle;border-radius:4px}
+#stage[data-phase="montage"] #phone{left:5%;right:auto}
+#stage[data-phase="montage"] #phone{top:14%;height:76%}
+
+/* Revision: SKIP is a recurring mechanic, not a one-off story label. */
+#stage[data-skip="true"] #choice{background:rgba(10,9,16,.82)}
+#stage[data-skip="true"] .choice-frame{width:min(58%,620px);border-color:#e8bd99;box-shadow:8px 8px #090910}
+#stage[data-skip="true"] #choiceTag{color:#e8bd99}
+#stage[data-skip="true"] #options button{font-family:Arial Black,Verdana,sans-serif;font-size:clamp(18px,2.4cqw,30px);letter-spacing:.04em;text-align:center;padding:16px}
+#stage[data-skip="true"] #choiceTitle{font-size:clamp(24px,3.2cqw,42px)}
+#stage[data-phase="finalphoto"] #interact{border:1px solid #e8bd99}
+
+/* Rubric / first-impression patch: the title is alive immediately and the first SKIP has a recognisable visual snap. */
+#title h1{animation:title-skip 4.6s steps(1,end) infinite}
+@keyframes title-skip{0%,84%,100%{transform:translateX(0)}86%{transform:translateX(7px)}88%{transform:translateX(-3px)}90%{transform:translateX(2px)}92%{transform:translateX(0)}}
+#stage[data-skipping="signature"] #world{animation:first-skip-snap .72s steps(6,end)}
+#stage[data-skipping="signature"] .grain{opacity:.28;animation:first-skip-grain .18s steps(2,end) infinite}
+@keyframes first-skip-snap{0%{transform:translateX(0) scale(1)}16%{transform:translateX(11px) scale(1.018)}33%{transform:translateX(-8px) scale(1.01)}50%{transform:translateX(15px) scale(1.025)}68%{transform:translateX(-4px) scale(1.012)}84%,100%{transform:translateX(0) scale(1)}}
+@keyframes first-skip-grain{0%{transform:translateY(0)}50%{transform:translateY(3px)}100%{transform:translateY(-2px)}}
+body[data-motion="reduced"] #title h1,body[data-motion="reduced"] #stage[data-skipping="signature"] #world,body[data-motion="reduced"] #stage[data-skipping="signature"] .grain{animation:none}
+
+/* ESCAPE patch: ordinary SKIP stays neutral; ESCAPE keeps the same warm, inviting visual language throughout. */
+.escape-option{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f1d59f 0%,#d9a66f 100%)!important;
+  color:#241d22!important;
+  border-color:#f7e3b6!important;
+  box-shadow:3px 3px 0 #090910,0 0 0 1px #b87f5f,0 0 22px rgba(239,190,120,.22)!important;
+  font-weight:bold;
+}
+.escape-option::after{
+  content:'';
+  position:absolute;
+  inset:-60% auto -60% -35%;
+  width:24%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.36),transparent);
+  animation:escape-shimmer 3.8s ease-in-out infinite;
+  pointer-events:none;
+}
+.escape-option:hover,.escape-option:focus-visible{
+  background:linear-gradient(180deg,#f7e4b7 0%,#e2b176 100%)!important;
+  border-color:#fff0c8!important;
+  box-shadow:3px 3px 0 #090910,0 0 28px rgba(246,202,132,.42)!important;
+}
+.skip-option{background:#2a2838;border-color:#6f6476;color:#d2c7d0}
+#stage[data-escape-prompt="true"] #choiceTag{color:#efc57f}
+#stage[data-escape-prompt="true"] .choice-frame{border-color:#9e8062}
+#stage[data-escape-focus="true"] #world{filter:sepia(.12) saturate(1.08) brightness(1.055)}
+#stage[data-escape-focus="true"] .grain{opacity:.055}
+#stage[data-escape-focus="true"] #thought{opacity:.8}
+#stage[data-escape-focus="true"] #phone{box-shadow:7px 7px #090910,0 0 34px rgba(232,184,111,.12)}
+@keyframes escape-shimmer{0%,68%,100%{left:-35%}82%{left:118%}}
+body[data-motion="reduced"] .escape-option::after{animation:none;opacity:.16}
+#interact.escape-object{border-color:#e6bc78;background:#3a302a;box-shadow:2px 2px #090910,0 0 18px rgba(238,190,116,.18)}
+#interact.escape-object kbd{background:#edc783}
+#interact.escape-object #object{color:#f1cf91}
+
+/* Late-game realisation patch */
+#reflectionText{white-space:pre-line}
+.authored-escape:disabled{opacity:1;cursor:default;filter:none}
+#stage[data-phase="escapebreak"] #interact.escape-object{box-shadow:2px 2px #090910,0 0 24px rgba(238,190,116,.24)}
+#stage[data-phase="realisation"] #thought span{letter-spacing:.04em}
+
+/* Progressive intrusion patch: ESCAPE stays warm, but gains salience as other choices narrow. */
+#stage[data-escape-pressure="early"] .escape-option{transform:scale(.98);opacity:.88}
+#stage[data-escape-pressure="middle"] .escape-option{box-shadow:3px 3px 0 #090910,0 0 0 1px #b87f5f,0 0 28px rgba(239,190,120,.3)!important}
+#stage[data-escape-pressure="strong"] .escape-option{transform:scale(1.035);box-shadow:3px 3px 0 #090910,0 0 0 1px #c58a62,0 0 36px rgba(239,190,120,.42)!important}
+#stage[data-escape-pressure="forced"] .escape-option{transform:scale(1.07);font-size:clamp(11px,1.35cqw,16px)!important;box-shadow:3px 3px 0 #090910,0 0 0 1px #c58a62,0 0 44px rgba(239,190,120,.5)!important}
+#stage[data-escape-pressure="forced"] #phone header,#stage[data-escape-pressure="forced"] #messages,#stage[data-escape-pressure="forced"] #draft,#stage[data-escape-pressure="forced"] #phoneThought{opacity:.72;transition:opacity .28s}
+#stage[data-escape-pressure="forced"] #phoneOptions{justify-content:center}
+#stage[data-escape-pressure="forced"] #phoneOptions .escape-option{flex:0 1 82%}
+#stage[data-escape-pressure="forced"] #options .escape-option{width:100%}
+body[data-motion="reduced"] #stage[data-escape-pressure] .escape-option{transform:none}
+
+/* Full-frame Maya memory: the supplied Polaroid art is the canonical photo asset. */
+#memoryPhoto{position:absolute;inset:0;z-index:17;display:grid;place-items:center;background:#120f17;overflow:hidden;pointer-events:none}
+#memoryPhoto img{display:block;width:100%;height:100%;object-fit:contain;transform:scale(1.03);opacity:.97;filter:saturate(.98) contrast(1.01)}
+#memoryPhoto.settled img{animation:polaroid-settle 1.8s cubic-bezier(.2,.75,.25,1) forwards}
+@keyframes polaroid-settle{0%{transform:scale(1.03);opacity:.94}24%{opacity:1}100%{transform:scale(1);opacity:1}}
+body[data-motion="reduced"] #memoryPhoto.settled img{animation:none;transform:scale(1)}
+
+/* Mirror close-up. The in-world mirror is rendered on the game canvas; this is the readable inspection view. */
+#mirrorView{z-index:19;background:#111019;padding:0;overflow:hidden}
+#mirrorClose{width:100%;height:100%;display:block;image-rendering:pixelated}
+#mirrorLine{position:absolute;left:12%;right:12%;bottom:9%;margin:0;text-align:center;color:#efe2d2;font-size:clamp(16px,2cqw,25px);line-height:1.5;text-shadow:2px 2px #15111c;letter-spacing:.01em}
+#mirrorLine:empty{display:none}
+#stage[data-phase="mirror"] #interact{border-color:#d9c8ad;box-shadow:2px 2px #090910,0 0 22px rgba(232,211,177,.18)}
+#stage[data-phase="mirror"] #thought span{background:rgba(31,27,35,.9)}
+
+/* Time-of-day polish: light changes should be readable even before the player notices the clock. */
+#stage[data-tod="morning"] #world{filter:brightness(1.06) saturate(.94)}
+#stage[data-tod="afternoon"] #world{filter:brightness(1.04) saturate(1.02)}
+#stage[data-tod="evening"] #world{filter:brightness(.98) saturate(1.06)}
+#stage[data-tod="night"] #world{filter:brightness(.94) saturate(.94)}
+#stage[data-escape-focus="true"][data-tod="morning"] #world{filter:sepia(.11) saturate(1.02) brightness(1.08)}
+#stage[data-escape-focus="true"][data-tod="afternoon"] #world{filter:sepia(.12) saturate(1.08) brightness(1.07)}
+#stage[data-escape-focus="true"][data-tod="evening"] #world{filter:sepia(.14) saturate(1.1) brightness(1.03)}
+#stage[data-escape-focus="true"][data-tod="night"] #world{filter:sepia(.12) saturate(1.04) brightness(.99)}
+
+
+/* Greyed-out ESCAPE / final-act patch. Disabled ESCAPE stays in the same choice area as the action it can no longer replace. */
+.escape-unavailable,.escape-unavailable:disabled{opacity:1!important;background:#383b43!important;color:#a4a5ac!important;border:5px solid #20242b!important;box-shadow:inset 0 0 0 2px #75464d,3px 3px #0b0b11!important;filter:none!important;cursor:not-allowed!important;text-shadow:none!important;transform:none!important;font-weight:bold;letter-spacing:.11em}
+.escape-unavailable small{display:block;float:none;margin:5px 0 0;font-size:.66em;letter-spacing:.09em;color:#c78389!important;text-transform:uppercase;font-weight:normal}
+.escape-unavailable:hover,.escape-unavailable:focus-visible{background:#383b43!important;color:#a4a5ac!important;border-color:#20242b!important;box-shadow:inset 0 0 0 2px #75464d,3px 3px #0b0b11!important;filter:none!important;transform:none!important}
+#options .escape-unavailable{width:100%}
+.escape-retry{pointer-events:auto!important}
+.connection-option{border:2px solid #f1d2ad!important;box-shadow:3px 3px #090910,0 0 22px rgba(232,189,153,.16)!important}
+.connection-option:hover,.connection-option:focus-visible{box-shadow:3px 3px #090910,0 0 28px rgba(232,189,153,.24)!important}
+
+/* The EMPTY beat is a close-up, not an inventory screen. */
+#supplyView{z-index:20;background:#15131bdc;grid-template-rows:1fr auto 1fr;gap:14px}
+#supplyView .empty-supply-art{align-self:end;width:150px;height:74px;position:relative;background:#746f79;border:4px solid #312e3a;box-shadow:9px 9px #09090e;transform:rotate(-3deg)}
+#supplyView .empty-supply-art:before{content:'';position:absolute;inset:8px;background:#4d4a54;border:2px solid #8b858d}
+#supplyView .empty-supply-art:after{content:'';position:absolute;left:18px;right:18px;top:34px;height:2px;background:#a09aa1;transform:rotate(-12deg)}
+#supplyView .empty-supply-art span{position:absolute;left:21px;top:18px;width:108px;height:24px;border:2px dashed #99939a;z-index:1}
+#supplyView .empty-supply-art i{position:absolute;left:70px;top:9px;width:3px;height:54px;background:#3a3740;transform:rotate(31deg);z-index:2}
+#supplyView>p{align-self:start;margin:0;color:#d8d1ca;font-size:clamp(30px,5cqw,64px);font-weight:900;letter-spacing:.12em}
+
+/* During the realisation, dates are evidence rather than tiny metadata. */
+#stage[data-phase="realisation"] .message small,#stage[data-phase="courseworkrealisation"] .message small{font-size:clamp(11px,1.25cqw,15px);color:#e2c6ad;font-weight:800;letter-spacing:.08em;margin-bottom:8px}
+#stage[data-phase="realisation"] .message,#stage[data-phase="courseworkrealisation"] .message{margin-bottom:25px}
+#stage[data-phase="realisation"] #messages,#stage[data-phase="courseworkrealisation"] #messages{padding-top:22px}
+
+/* Date cards keep the changing bedroom/window visible so day and night pass behind the text. */
+#reflection[data-mode="time"]{background:rgba(15,14,21,.55);backdrop-filter:none}
+#reflection[data-mode="time"] #reflectionText{font-size:clamp(28px,4.6cqw,58px);font-weight:900;letter-spacing:.05em;text-shadow:3px 3px #13111a}
+#reflection[data-mode="total"]{background:#12121bed}
+#reflection[data-mode="total"] #reflectionText{font-size:clamp(34px,5.4cqw,72px);font-weight:1000;line-height:1.3;letter-spacing:.035em}
+#reflection[data-mode="total-sub"]{background:#12121bed}
+#reflection[data-mode="total-sub"] #reflectionText{font-size:clamp(17px,2.3cqw,29px);font-weight:700;letter-spacing:.08em;color:#c8bac0}
+#reflection[data-mode="statement"] #reflectionText{font-size:clamp(25px,3.5cqw,45px);font-weight:850;line-height:1.45}
+#reflection[data-mode="memory"] #reflectionText{font-size:clamp(22px,3.2cqw,40px);line-height:1.5;color:#e5d5c6}
+#reflection[data-mode="course"] #reflectionText{font-size:clamp(28px,4.2cqw,54px);font-weight:900;line-height:1.45;color:#dfc8bf}
+#reflection[data-mode="losttime"]{background:rgba(13,12,19,.9)}
+#reflection[data-mode="losttime"] #reflectionText{font-size:clamp(34px,5.2cqw,68px);font-weight:1000;letter-spacing:.045em;color:#edc79d;text-shadow:3px 3px #0d0c13}
+#reflection[data-mode="chapter"]{background:rgba(17,18,26,.62)}
+#reflection[data-mode="chapter"] #reflectionText{font-size:clamp(28px,4.4cqw,56px);font-weight:900;line-height:1.55;letter-spacing:.045em;color:#e4ded5;text-shadow:3px 3px #101019}
+#reflection[data-mode="routine"]{background:rgba(15,14,21,.48)}
+#reflection[data-mode="routine"] #reflectionText{font-size:clamp(20px,3cqw,38px);font-weight:800;letter-spacing:.08em;color:#c5bac3;text-shadow:2px 2px #111019}
+#reflection[data-mode="ending"] #reflectionText{font-size:clamp(20px,2.7cqw,34px);line-height:1.65;max-width:820px;color:#e7d9cc}
+
+
+/* Ver 1 feature merge: keep the ending as a clean black text space, with crisp non-pixel UI typography. */
+#reflection[data-mode="ending"]{background:#12121b}
+#reflection[data-mode="ending"] #reflectionText{max-width:760px;width:83%;font-size:clamp(20px,2.6cqw,32px);line-height:1.7;text-align:center;color:#e8daca;margin:0;font-weight:400;letter-spacing:0;transition:none}
+
+/* The restored mirror uses Ver 1's muted physical-object palette. The inspection view is simply an enlarged version of it. */
+#mirrorView{background:#15131c}
+
+/* Continuity patch: chapter markers are restrained; the final elapsed reveal remains the only oversized time statement. */
+#reflection[data-mode="chapter"]{background:rgba(17,18,26,.34)}
+#reflection[data-mode="chapter"] #reflectionText{font-size:clamp(18px,2.45cqw,31px);font-weight:750;line-height:1.5;letter-spacing:.035em;color:#ddd6cf;text-shadow:2px 2px #101019}
+.message.submission-closed p{background:#37282f;border-left:4px solid #d79b91;color:#f0ded8;font-size:clamp(16px,1.8cqw,22px);font-weight:900;letter-spacing:.055em;padding:14px 12px}
+.message.submission-closed small{color:#d6aba5;font-weight:800}
+#stage[data-phase="room1after"] #interact,#stage[data-phase="room2after"] #interact,#stage[data-phase="room3after"] #interact{border-color:#c9ad91;box-shadow:2px 2px #090910,0 0 18px rgba(220,181,137,.14)}
+
+
+/* Scattered message storm. The full 3 → 5 → 9 → 17 progression is retained at every viewport size. */
+#montageMessages{position:absolute;z-index:9;inset:0;pointer-events:none}
+#montageMessages[hidden]{display:none!important}
+.montage-label{position:absolute;left:50%;top:4.5%;transform:translateX(-50%);z-index:30;color:#aa9aa8;font-size:clamp(8px,.88cqw,11px);font-weight:800;letter-spacing:.16em;background:rgba(22,20,30,.72);padding:5px 7px;border-left:2px solid #786777}
+.montage-message{position:absolute;width:29%;max-height:24%;overflow:hidden;background:rgba(31,29,42,.96);border:1px solid #786777;border-left:3px solid #a9878f;box-shadow:4px 4px #0d0c13;padding:8px 11px;will-change:transform,opacity;pointer-events:none}
+.montage-message small{display:block;color:#c5adb6;font:700 clamp(8px,.9cqw,11px)/1.2 Verdana,Geneva,sans-serif;letter-spacing:.075em;margin-bottom:4px}
+.montage-message p{margin:0;color:#e6dce0;font:400 clamp(11px,1.25cqw,16px)/1.32 Verdana,Geneva,sans-serif;letter-spacing:0}
+.montage-message.newest{border-color:#b48e86;border-left-color:#e0b490;box-shadow:4px 4px #0d0c13,0 0 22px rgba(222,174,137,.12)}
+.montage-message.older{filter:saturate(.75)}
+#stage[data-montage-choice="true"] #choice,#stage[data-phase="escapebreak"] #choice{background:transparent}
+#stage[data-montage-choice="true"] #choice,#stage[data-phase="escapebreak"] #choice{pointer-events:none}
+#stage[data-montage-choice="true"] .choice-frame,#stage[data-phase="escapebreak"] .choice-frame{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(44%,520px);padding:0;margin:0;background:transparent;border:0;box-shadow:none;overflow:visible;pointer-events:none}
+#stage[data-montage-choice="true"] #options,#stage[data-phase="escapebreak"] #options{margin-top:0}
+#stage[data-montage-choice="true"] #options .escape-option,#stage[data-phase="escapebreak"] #options .escape-option{text-align:center;pointer-events:auto;position:relative;z-index:2}
+.escape-wave-active:disabled{opacity:1;filter:none;animation:escape-wave-glow .15s ease-out both}
+@keyframes escape-wave-glow{from{filter:brightness(1.18)}to{filter:brightness(1)}}
+/* The failure button reserves the final border and size from its first gold frame. */
+#stage .escape-failure-button{transform:none!important;min-height:74px;border-width:3px!important;text-align:center}
+.escape-failure-button .escape-main{float:none;margin:0}
+.escape-unavailable,.escape-unavailable:disabled{position:relative;border:5px solid #20242b!important;background-color:#383b43!important;background-image:linear-gradient(24deg,transparent 47%,#87535b66 48% 49%,transparent 50%),linear-gradient(152deg,transparent 63%,#87535b55 64% 65%,transparent 66%),linear-gradient(168deg,transparent 73%,#87535b40 74% 75%,transparent 76%)!important;background-size:20% 38%,18% 35%,29% 22%!important;background-position:3% 8%,97% 93%,48% 18%!important;background-repeat:no-repeat!important;box-shadow:inset 0 0 0 2px #75464d,inset 0 3px 9px #05060970,3px 3px #0b0b11!important;color:#a4a5ac!important;filter:none!important}
+.escape-unavailable small{color:#c78389!important}
+.escape-revealed{border-color:#20242b!important}
+#stage .escape-crumble-button{filter:none!important;overflow:visible!important}
+.gold-fall-layer{position:absolute;inset:0;z-index:12;overflow:hidden;pointer-events:none}
+.gold-coating{position:absolute;pointer-events:none;overflow:visible}
+.gold-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;will-change:filter,opacity}
+.gold-face .escape-main,.gold-fragment-face .escape-main{float:none;margin:0}
+.gold-fragment-local{position:absolute;overflow:hidden;transform-origin:50% 50%;will-change:transform,opacity}
+.gold-fragment-face{display:flex!important;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box}
+.gold-fractures{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#6f4d35;stroke-width:.52;stroke-linejoin:round;stroke-linecap:round;pointer-events:none;z-index:4}.gold-fractures .crack-primary{stroke:#65432f;stroke-width:.82}.gold-fractures .crack-branch{stroke:#79553b;stroke-width:.46}
+.fragment-cracks{z-index:5}.gold-dust{position:absolute;display:block;background:#a97947;box-shadow:0 0 0 1px rgba(73,49,33,.3);pointer-events:none;will-change:transform,opacity;z-index:13}
+.escape-unavailable:hover,.escape-unavailable:focus-visible,.escape-unavailable:disabled{border-color:#20242b!important;box-shadow:inset 0 0 0 2px #75464d,inset 0 3px 9px #05060970,3px 3px #0b0b11!important;background-color:#383b43!important;color:#a4a5ac!important;filter:none!important}
+body[data-motion="reduced"] .escape-wave-active{animation:none}
+@media(max-width:760px){.montage-message{width:39%;max-height:21%;padding:5px 7px}.montage-message small{font-size:clamp(6px,.82cqw,9px)}.montage-message p{font-size:clamp(8px,1.05cqw,12px);line-height:1.22}.montage-label{top:3.5%;left:50%}#stage[data-montage-choice="true"] .choice-frame,#stage[data-phase="escapebreak"] .choice-frame{width:62%}}
+
+/* Empty common room is a persistent scene variant, not a temporary narrative phase. */
+#stage[data-phase="ending"] #thought{opacity:1}
+
+
+
+/* Coursework-only flashback cards: explicit status + slower readable hold. */
+#reflection[data-mode="course-memory"]{background:#171520}
+#reflection[data-mode="course-memory"] #reflectionText{display:flex;flex-direction:column;align-items:center;gap:11px;text-align:center;max-width:72%;white-space:normal}
+.course-heading{font-size:clamp(9px,1.05cqw,13px);font-weight:800;letter-spacing:.18em;color:#aaa4ad}
+.course-status{display:block;font-size:clamp(28px,4.4cqw,58px);line-height:1.05;letter-spacing:-.035em}
+.course-detail{font-size:clamp(12px,1.45cqw,18px);line-height:1.5;color:#c8bec5}
+#reflection[data-course-tone="amber"] .course-status{color:#e3b777}
+#reflection[data-course-tone="orange"] .course-status{color:#cf8f67}
+#reflection[data-course-tone="red"] .course-status{color:#cf7f77}
+
+/* Important pre-storm notifications wait for explicit acknowledgement; ordinary notifications remain non-interactive. */
+#moment.awaiting-ack{pointer-events:auto;cursor:pointer;border-color:#a98b9c;box-shadow:4px 4px #13121a,0 0 0 1px rgba(232,189,153,.14)}
+#moment.awaiting-ack::after{content:'ENTER / SPACE / CLICK TO CONTINUE · E ALSO WORKS';display:block;margin-top:10px;color:#b9a9b5;font-size:clamp(7px,.75cqw,10px);font-weight:700;letter-spacing:.075em}#pace.ack-pace{font-size:15px;padding:7px 10px}#pace.ack-pace small{display:none}#pace.ack-pace::after{content:'ENTER / SPACE / CLICK';font-size:9px;letter-spacing:.06em;color:#c6b8c5;margin-left:7px}
+
+/* 67.9: full reading gates stay inside the phone/coursework panel footer. */
+#phone.awaiting-read{border-color:#aa879a;box-shadow:7px 7px #090910,0 0 0 1px rgba(232,189,153,.16)}
+#phone.awaiting-read #messages{overscroll-behavior:contain;padding-bottom:8px}
+#phone.awaiting-read #phoneOptions{position:sticky;bottom:0;z-index:4;margin-top:10px;padding-top:8px;background:linear-gradient(180deg,rgba(31,28,40,0),rgba(31,28,40,.96) 34%)}
+#phone.awaiting-read .reading-continue{width:100%;margin:0;min-height:34px;padding:8px 10px;border-color:#aa8c9e;background:#211e2f;color:#ded1d9;font-size:clamp(8px,.92cqw,11px);line-height:1.3;font-weight:800;letter-spacing:.065em;text-align:center}
+#phone.awaiting-read .reading-continue:hover,#phone.awaiting-read .reading-continue:focus-visible{background:#2b2535;border-color:#c09aaa;box-shadow:2px 2px #090910}
+
+/* 67.8: cracked gold erodes in stationary source patches and falls as tiny sand grains. */
+.gold-source-patch{position:absolute;overflow:hidden;pointer-events:none;z-index:2}
+.gold-source-patch-face{display:flex!important;align-items:center;justify-content:center;box-sizing:border-box}
+.gold-grain{position:absolute;display:block;pointer-events:none;will-change:transform,opacity;z-index:13;image-rendering:pixelated}
+
+/* 67.11 — active ESCAPE keys share one raised physical family, with SPACE contained inside the key face. */
+.escape-key-wrap{position:relative;width:min(100%,320px);margin:0 auto;min-width:0}
+.escape-option{
+  --escape-depth:5px;
+  overflow:visible!important;
+  display:flex!important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:#d8b477!important;
+  background-image:linear-gradient(180deg,rgba(235,208,155,.20),transparent 33%)!important;
+  color:#292128!important;
+  border:3px solid #302630!important;
+  border-radius:0!important;
+  box-shadow:inset 0 3px 0 #ebd09b,inset 0 -5px 0 #b4854e,0 var(--escape-depth) 0 #302630!important;
+  min-height:68px;
+  padding:11px 16px 15px;
+  font-family:Arial Black,Verdana,sans-serif;
+  font-weight:900;
+  letter-spacing:.075em;
+  text-align:center!important;
+  text-shadow:none!important;
+}
+.escape-main{display:block;float:none!important;margin:0!important;line-height:1;font-size:1em;font-family:Arial Black,Verdana,sans-serif;font-weight:900;letter-spacing:.075em}
+.escape-space{display:block;float:none!important;margin:0!important;font-family:Verdana,Geneva,sans-serif;font-size:clamp(7px,.42em,12px);font-weight:800;line-height:1;letter-spacing:.14em;color:#665246;opacity:.82;white-space:nowrap}
+.escape-option::after{content:none!important;animation:none!important;background:none!important}
+.escape-option:hover,.escape-option:focus-visible{
+  background:#ddb981!important;
+  background-image:linear-gradient(180deg,rgba(242,218,170,.24),transparent 33%)!important;
+  color:#292128!important;
+  border-color:#302630!important;
+  box-shadow:inset 0 3px 0 #efd7a8,inset 0 -5px 0 #b4854e,0 var(--escape-depth) 0 #302630!important;
+}
+.escape-option:active{box-shadow:inset 0 2px 0 #ebd09b,inset 0 -3px 0 #b4854e,0 2px 0 #302630!important}
+#stage[data-escape-pressure="middle"] .escape-option,#stage[data-escape-pressure="strong"] .escape-option,#stage[data-escape-pressure="forced"] .escape-option{box-shadow:inset 0 3px 0 #ebd09b,inset 0 -5px 0 #b4854e,0 var(--escape-depth) 0 #302630!important}
+#stage[data-escape-pressure="early"] .escape-option{opacity:.9}
+#stage[data-escape-pressure="strong"] .escape-option{transform:scale(1.025)}
+#stage[data-escape-pressure="forced"] .escape-option{transform:scale(1.04);font-size:clamp(12px,1.35cqw,17px)!important}
+#options .escape-key-wrap .escape-option,#phoneOptions .escape-key-wrap .escape-option{width:100%}
+#options .escape-option,#phoneOptions .escape-option{font-size:clamp(16px,1.35cqw,18px)!important;min-height:72px}
+#options .escape-key-wrap{justify-self:center}
+#phoneOptions .escape-key-wrap{flex:0 1 320px;max-width:100%;align-self:center}
+#stage[data-escape-pressure="forced"] #phoneOptions .escape-key-wrap{flex:0 1 320px}
+
+/* The central storm/failure key is centred by its actual face; SPACE remains inside that face. */
+#stage[data-montage-choice="true"] .choice-frame,#stage[data-phase="escapebreak"] .choice-frame{width:auto;max-width:none}
+#stage[data-montage-choice="true"] #options .escape-key-wrap,#stage[data-phase="escapebreak"] #options .escape-key-wrap{width:clamp(190px,25.8cqw,340px);max-width:none;margin:0 auto}
+#stage[data-montage-choice="true"] .escape-central,#stage[data-phase="escapebreak"] .escape-central{width:100%;height:clamp(66px,6.67cqw,88px);min-height:0;padding:10px 18px 14px;transform:none;font-size:clamp(19px,2.05cqw,30px)!important;line-height:1}
+
+/* Unavailable ESCAPE keeps the same raised-key silhouette but is deliberately subordinate to active choices. */
+.escape-unavailable,.escape-unavailable:disabled,.escape-unavailable:hover,.escape-unavailable:focus-visible{
+  min-height:54px;
+  padding:10px 14px 12px;
+  border:3px solid #20242b!important;
+  border-radius:0!important;
+  background-color:#383b43!important;
+  color:#a4a5ac!important;
+  box-shadow:inset 0 0 0 2px #75464d,inset 0 3px 0 rgba(164,165,172,.08),inset 0 -4px 0 rgba(20,22,27,.55),0 5px 0 #20242b!important;
+  filter:none!important;
+  transform:none!important;
+  text-shadow:none!important;
+  font-family:Arial Black,Verdana,sans-serif;
+  font-weight:900;
+  letter-spacing:.075em;
+}
+.escape-unavailable small{margin:4px 0 0;font-family:Verdana,Geneva,sans-serif;font-size:.58em;letter-spacing:.11em;color:#c78389!important}
+#stage .escape-crumble-button{overflow:visible!important}
+
+/* Longer historical dates share one metadata row without stealing space from message bodies. */
+.montage-message .montage-meta{display:flex;align-items:baseline;justify-content:space-between;gap:7px;white-space:nowrap}
+.montage-message .montage-meta span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.montage-message .montage-meta time{flex:0 0 auto;font:inherit;color:inherit;letter-spacing:inherit}
+
+@media(max-width:760px){
+  .escape-key-wrap{width:min(100%,230px)}
+  .escape-option{gap:6px;min-height:58px;padding:9px 12px 12px}
+  #options .escape-option,#phoneOptions .escape-option{font-size:16px!important;min-height:62px}
+  #stage[data-montage-choice="true"] #options .escape-key-wrap,#stage[data-phase="escapebreak"] #options .escape-key-wrap{width:clamp(170px,30cqw,230px)}
+  #stage[data-montage-choice="true"] .escape-central,#stage[data-phase="escapebreak"] .escape-central{height:clamp(58px,7.4cqw,68px);font-size:clamp(16px,2.35cqw,22px)!important}
+  .montage-message .montage-meta{gap:4px}
+}
+.escape-option:disabled{opacity:1!important;cursor:default}
+
+/* 67.10 — central ESCAPE must be centred by its key face, not empty choice headings. */
+#stage[data-montage-choice="true"] #choiceTag,
+#stage[data-montage-choice="true"] #choiceTitle,
+#stage[data-montage-choice="true"] #choiceBody,
+#stage[data-phase="escapebreak"] #choiceTag,
+#stage[data-phase="escapebreak"] #choiceTitle,
+#stage[data-phase="escapebreak"] #choiceBody {
+  display: none !important;
+}
+
+
+/* 67.11 — ESCAPE temptation lighting affects only the rendered room/world and transitions smoothly. */
+#world{transition:filter .22s ease}
+#stage[data-escape-focus="true"][data-tod="morning"] #world{filter:sepia(.16) saturate(1.07) brightness(1.13)}
+#stage[data-escape-focus="true"][data-tod="afternoon"] #world{filter:sepia(.17) saturate(1.12) brightness(1.12)}
+#stage[data-escape-focus="true"][data-tod="evening"] #world{filter:sepia(.18) saturate(1.13) brightness(1.09)}
+#stage[data-escape-focus="true"][data-tod="night"] #world{filter:sepia(.17) saturate(1.08) brightness(1.06)}
+#stage[data-escape-focus="true"] #phone{box-shadow:7px 7px #090910}
+#stage[data-escape-focus="true"] #thought{opacity:0}
+#stage[data-escape-focus="true"] #thought.visible{opacity:1}
+
+/* Retrospective-only direct handoff: the prepared photo temporarily sits above the outgoing reflection cover. */
+#memoryPhoto.retrospective-handoff{z-index:19}
+
+/* Important reading remains inside the established phone language and can grow/scroll without clipping. */
+#phone.awaiting-read #draft{max-height:42%;overflow:auto;overscroll-behavior:contain}
+#phone.awaiting-read .reading-continue{flex:1 1 100%;max-width:none}
+
+/* 67.12: one quiet caption style; substantial thoughts use the dialogue panel. */
+#thought{left:8%;right:8%;bottom:5%;text-align:center;font-size:clamp(13px,1.55cqw,19px);line-height:1.55;color:#e1d4cc;text-shadow:0 2px 3px #111019,0 0 9px #111019}
+#thought span{background:none;padding:0;box-shadow:none}
+#stage[data-phase="montage"] #thought{top:auto;left:8%;right:8%;bottom:5%}
+#moment{left:5%;top:17%;width:31%;padding:12px 15px;border:1px solid #685c70;border-left:3px solid #b69ba5;background:#211e2ef2;box-shadow:3px 3px #101018}
+#moment strong{font-size:clamp(9px,1.05cqw,13px)}
+#moment p{font-size:clamp(12px,1.4cqw,17px);line-height:1.5}
+#phoneOptions:has(.escape-key-wrap)>button:not(.escape-option){flex:0 0 31%;min-width:85px;padding:8px 6px;line-height:1.4}
+#phoneOptions:has(.escape-key-wrap) .escape-key-wrap{flex:1 1 0;min-width:0}
+@media(max-width:760px){#moment{width:39%;padding:8px 10px}#moment p{font-size:clamp(10px,1.5cqw,14px)}#thought{font-size:clamp(11px,1.55cqw,16px)}}
+
+/* 67.12.2 — understated idle guidance after ~20s without meaningful story progress. */
+#interact.idle-guidance{animation:idle-guide-pulse 2.4s ease-in-out infinite}
+@keyframes idle-guide-pulse{0%,100%{box-shadow:2px 2px #090910,0 0 0 0 rgba(216,194,164,.08)}50%{box-shadow:2px 2px #090910,0 0 0 3px rgba(216,194,164,.18),0 0 14px rgba(216,194,164,.12)}}
+body[data-motion="reduced"] #interact.idle-guidance{animation:none;box-shadow:2px 2px #090910,0 0 0 2px rgba(216,194,164,.13)}
+
+/* Clarity and controls pass */
+.volume-control{display:flex;align-items:center;gap:10px;color:#dfd0c7;font-size:clamp(10px,1.1cqw,13px);margin:10px 0;letter-spacing:.04em}
+.volume-control input{min-width:0;flex:1;accent-color:#edc777;cursor:pointer;height:24px}
+.volume-control output{min-width:4ch;text-align:right;font-variant-numeric:tabular-nums}
+.title-content .volume-control{max-width:290px;margin-bottom:0}
+.title-content .smallprint{margin-top:8px}
+#pauseScreen .menu{max-height:100%;overflow-y:auto;width:40%;padding:0 12px}
+#pauseScreen .menu h2{margin:4px 0 12px}
+#pauseScreen .menu button{margin:8px 0}
+#recentDialogue{text-align:left;font-size:clamp(11px,1.2cqw,14px);color:#e4d6ce;margin-top:12px}
+#recentDialogue summary{cursor:pointer;padding:10px 0;color:#edc777}
+#dialogueLog{max-height:135px;overflow:auto;padding:0 12px;background:#24202e;line-height:1.5}
+#dialogueLog strong{color:#edc777}
+#thought[data-kind="thought"]::before{content:none;display:none}
+.volume-control input:focus-visible,#recentDialogue summary:focus-visible{outline:2px solid #edc777;outline-offset:3px}
+
+@media(max-width:760px){.title-content{max-height:79%;overflow-y:auto;padding-right:8px}#pauseScreen .menu{width:64%}.volume-control{gap:6px;margin:5px 0}}
+
+/* 67.16: pressure builds behind readable messages; Rock Salt is bundled offline. */
+@font-face{font-family:'Rock Salt';src:url('assets/fonts/RockSalt-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+#stormDark{position:absolute;inset:0;z-index:2;background:#000;opacity:0;pointer-events:none}
+#stormThought{position:absolute;left:18%;right:18%;bottom:calc(50% + 56px);z-index:11;pointer-events:none;text-align:center;font:400 clamp(12px,1.9cqw,24px)/1.65 'Rock Salt',cursive;color:#fff0dc;text-shadow:0 2px 4px #080710;}
+#stage.storm-pressure[data-tod="morning"] #world{filter:brightness(1.06) saturate(.94)}
+#stage.storm-pressure[data-tod="afternoon"] #world{filter:brightness(1.04) saturate(1.02)}
+#stage.storm-pressure[data-tod="evening"] #world{filter:brightness(.98) saturate(1.06)}
+#stage.storm-pressure[data-tod="night"] #world{filter:brightness(.94) saturate(.94)}
+@media(max-width:700px){#stormThought{left:12%;right:12%;bottom:calc(50% + 45px);font-size:clamp(10px,2cqw,14px)}}
+
+/* 67.18: adjacent support contacts, stacked on compact displays. */
+.support-content{width:85%}.support-contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}.support-contacts a{margin:8px 0!important}@media(max-width:650px){.support-contacts{grid-template-columns:1fr;gap:0}}
